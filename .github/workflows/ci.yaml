@@ -19,7 +19,6 @@ jobs:
     - name: build
       run: |
         luarocks install busted
-        busted -h
     - uses: actions/checkout@v2
     - name: Setup tmate session
       uses: mxschmitt/action-tmate@v3
