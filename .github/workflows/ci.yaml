@@ -12,9 +12,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v3
     - uses: leafo/gh-actions-lua@v9
       with:
         luaVersion: "5.1.5"
@@ -22,4 +19,7 @@ jobs:
     - name: build
       run: |
         luarocks install busted
-        luarocks make
+        busted -h
+    - uses: actions/checkout@v2
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
