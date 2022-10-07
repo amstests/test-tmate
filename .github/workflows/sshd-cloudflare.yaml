@@ -6,4 +6,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - id: composite
-        uses: amstests/sshd-cloudflared@v1
+        uses: amstests/sshd-cloudflared@master
