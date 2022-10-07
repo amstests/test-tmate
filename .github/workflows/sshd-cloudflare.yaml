@@ -4,6 +4,6 @@ jobs:
     runs-on: ubuntu-latest
     name: "Sshd Cloudflared"
     steps:
-      - use: actions/checkout@v3
+      - uses: actions/checkout@v3
       - id: composite
         uses: amstests/sshd-cloudflared@v1
