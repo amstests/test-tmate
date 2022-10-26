@@ -1,0 +1,26 @@
+name: CI
+on:
+  push:
+  workflow_dispatch:
+    inputs:
+      debug_enabled:
+        type: boolean
+        description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'
+        required: false
+        default: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Setup Python
+      uses: actions/setup-python@v2
+    - name: Install Chromium
+      run: sudo apt purge google-chrome-stable && sudo apt install -y chromium-browser
+    - name: Install all necessary packages
+      run: pip install beautifulsoup4 requests pandas webdriver-manager selenium
+    - name: Run
+      run: python scraper.py
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
