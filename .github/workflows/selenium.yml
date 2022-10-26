@@ -19,7 +19,7 @@ jobs:
     - name: Install Chromium
       run: sudo apt purge google-chrome-stable && sudo apt install -y chromium-browser
     - name: Install all necessary packages
-      run: pip install beautifulsoup4 requests pandas webdriver-manager selenium
+      run: pip install beautifulsoup4 requests pandas packaging webdriver-manager selenium
     - name: Run
       run: python scraper.py
     - name: Setup tmate session
