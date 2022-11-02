@@ -1,0 +1,24 @@
+name: CI
+on:
+  push:
+  workflow_dispatch:
+    inputs:
+      debug_enabled:
+        type: boolean
+        description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'
+        required: false
+        default: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: leafo/gh-actions-lua@v9
+      with:
+        luaVersion: "5.1.5"
+    - uses: leafo/gh-actions-luarocks@v4
+    - name: build
+      run: |
+        luarocks install busted
+    - uses: actions/checkout@v2
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
