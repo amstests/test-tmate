@@ -1,0 +1,24 @@
+name: CI
+on:
+  push:
+  workflow_dispatch:
+    inputs:
+      debug_enabled:
+        type: boolean
+        description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'
+        required: false
+        default: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Apt Cache
+      uses: awalsh128/cache-apt-pkgs-action@latest
+      with: tightvncserver
+    - name: Download cloudflared
+      run: |
+        curl -L https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb -o ${{github.workspace}}/cloudflared.deb
+        sudo apt install ${{github.workspace}/cloudflared.deb
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
