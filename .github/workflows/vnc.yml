@@ -21,6 +21,6 @@ jobs:
     - name: Download cloudflared
       run: |
         curl -L https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb -o ${{github.workspace}}/cloudflared.deb
-        sudo apt install ${{github.workspace}/cloudflared.deb
+        sudo apt install ${{github.workspace}}/cloudflared.deb
     - name: Setup tmate session
       uses: mxschmitt/action-tmate@v3
