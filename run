@@ -1,0 +1,7 @@
+#!/usr/bin/sh
+
+./ngrok config add-authtoken $1
+vncserver :1
+DISPLAY=:1 google-chrome &
+./ngrok tcp localhost:5901
+
