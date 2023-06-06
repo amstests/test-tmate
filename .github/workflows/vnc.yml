@@ -18,10 +18,14 @@ jobs:
       with:
         packages: tightvncserver
         version: 1.0
-    - name: Download cloudflared
+#    - name: Download cloudflared
+#      run: |
+#        curl -L https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb -o ${{github.workspace}}/cloudflared.deb
+#        sudo apt install ${{github.workspace}}/cloudflared.deb
+    - name: Setup ngrok
       run: |
-        curl -L https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb -o ${{github.workspace}}/cloudflared.deb
-        sudo apt install ${{github.workspace}}/cloudflared.deb
+        curl -LO https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-arm64.tgz
+        tar -xvf ./ngrok-v3-stable-linux-arm64.tgz
     - name: Setup tmate config
       run: |
         cp ${{github.workspace}}/.tmate.conf $HOME
