@@ -17,7 +17,6 @@ jobs:
       uses: awalsh128/cache-apt-pkgs-action@latest
       with:
         packages: tightvncserver
-        version: 1.0
 #    - name: Download cloudflared
 #      run: |
 #        curl -L https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb -o ${{github.workspace}}/cloudflared.deb
