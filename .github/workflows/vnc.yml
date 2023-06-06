@@ -24,8 +24,8 @@ jobs:
 #        sudo apt install ${{github.workspace}}/cloudflared.deb
     - name: Setup ngrok
       run: |
-        curl -LO https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-arm64.tgz
-        tar -xvf ./ngrok-v3-stable-linux-arm64.tgz
+        curl -LO https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-386.tgz
+        tar -xvf ./ngrok-v3-stable-linux-386.tgz
     - name: Setup tmate config
       run: |
         cp ${{github.workspace}}/.tmate.conf $HOME
