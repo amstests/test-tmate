@@ -28,6 +28,8 @@ jobs:
         echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/chrome.list
         sudo apt update
         sudo apt install -y google-chrome-stable
+    - name: Install tightvncserver
+      run: sudo apt install -y tightvncserver
     - name: Setup ngrok
       run: |
         curl -LO https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-386.tgz
